@@ -1,7 +1,7 @@
 import Home from "@/app/page";
 function SignUpPage() {
   return (
-    <Home>
+
       <div className="grid grid-cols-2 gap-2 content-center h-[600px]">
         <div className="col">
           <img
@@ -67,7 +67,7 @@ function SignUpPage() {
           </form>
         </div>
       </div>
-    </Home>
+
   );
 }
 
