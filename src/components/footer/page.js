@@ -1,7 +1,3 @@
-import img from "../../../../public/image/qrcode.png"
-
-console.log('footer di render');
-
 export default function Footer() {
     return(
         <footer className="bg-black mt-10">
@@ -88,16 +84,16 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase text-white">Download App</h2>
+                        <h2 className="mb-6 text-sm font-semibold  uppercase text-white">Download App</h2>
                         <ul>
                             <li className="mb-4">
                                 <a href="#" className="hover:underline text-gray-400  text-xs font-light">Save 3$ with App New User Only</a>
                             </li>
                             <li className="mb-4">
                                 <div className="grid grid-rows-3 grid-flow-col gap-4">
-                                    <div className="row-span-3 ... bg-white"><a href="#"><img src="../../../../public/image/qrcode.png" alt="QRCode" className="max-w-full"/></a></div>
-                                    <div className="col-span-2 ... bg-red-600"><a href="#"><img src="../../public/image/google-play-store.png" alt="GPlayStore" /></a></div>
-                                    <div className="col-span-2  ... bg-orange-400"><a href="#"><img src="../../public/asset/app-store.png" alt="AppStore" /></a></div>
+                                    <div className="row-span-3 ... bg-white"><a href="#"><img src="/image/qrcode.png" alt="QRCode" className="max-w-full"/></a></div>
+                                    <div className="col-span-2 ... bg-red-600"><a href="#"><img src="/image/google-play-store.png" alt="GPlayStore" /></a></div>
+                                    <div className="col-span-2  ... bg-orange-400"><a href="#"><img src="/image/app-store.png" alt="AppStore" /></a></div>
                                 </div>
                             </li>
                             <li className="text-white flex">
