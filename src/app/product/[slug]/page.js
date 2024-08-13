@@ -1,8 +1,10 @@
 'use client';
 import RatingComponent from "@/components/rating/page";
+import CardProduct from "@/components/cards/page";
 import PopUp from "@/components/popup/page";
 import Image from "next/image";
 import { useState } from "react";
+import { randomIntFromInterval } from "@/helper/halper";
 
 const ProductPage = () => {
 
@@ -11,6 +13,8 @@ const ProductPage = () => {
         title : null,
         size : '',
     });
+
+    const items = [0, 1, 2];
 
     const [errors, setErrors] = useState({ message: [] });
 
@@ -130,23 +134,23 @@ const ProductPage = () => {
                     </div>
 
                     <div className="space-y-5">
-                        <div  className="flex align-content-center gap-2">
-                            <span>Size</span>
+                        <div  className="flex align-content-center align-items-center gap-2">
+                            <span className="w-8 h-8">Size</span>
                             <div className="space-x-3">
-                                <button className={`border px-2 py-3 ${product.size == 'xs' ? 'bg-red-500' : ''}`} onClick={selectSize} data-target="xs">xs</button>
-                                <button className={`border px-2 py-3 ${product.size == 's' ? 'bg-red-500' : ''}`} onClick={selectSize} data-target="s">s</button>
-                                <button className={`border px-4 py-3 ${product.size == 'm' ? 'bg-red-500' : ''}`} onClick={selectSize} data-target="m">m</button>
-                                <button className={`border px-2 py-3 ${product.size == 'l' ? 'bg-red-500' : ''}`} onClick={selectSize} data-target="l">l</button>
-                                <button className={`border px-2 py-3 ${product.size == 'xl' ? 'bg-red-500' : ''}`} onClick={selectSize} data-target="xl">xl</button>
+                                <button className={`border px-2 w-8 h-8 ${product.size == 'xs' ? 'bg-red-500 text-white' : ''}`} onClick={selectSize} data-target="xs">xs</button>
+                                <button className={`border px-2 w-8 h-8 ${product.size == 's' ? 'bg-red-500 text-white' : ''}`} onClick={selectSize} data-target="s">s</button>
+                                <button className={`border px-2 w-8 h-8 ${product.size == 'm' ? 'bg-red-500 text-white' : ''}`} onClick={selectSize} data-target="m">m</button>
+                                <button className={`border px-2 w-8 h-8 ${product.size == 'l' ? 'bg-red-500 text-white' : ''}`} onClick={selectSize} data-target="l">l</button>
+                                <button className={`border px-2 w-8 h-8 ${product.size == 'xl' ? 'bg-red-500 text-white' : ''}`} onClick={selectSize} data-target="xl">xl</button>
                             </div>
                         </div>
                     </div>
 
-                    <div className="">
-                        <button className="border px-2 py-2" onClick={reduction}>-</button>
-                        <button className="border px-6 py-2 bg-red-500">{product.total}</button>
-                        <button className="border px-2 py-2" onClick={increase}>+</button>
-                        <button className="border px-12 py-2 ms-3 " onClick={buyProduct}>Buy</button>
+                    <div className="mt-5">
+                        <button className="border px-2 py-2 w-12" onClick={reduction}>-</button>
+                        <button className="border px-6 py-2 bg-red-500 w-24 text-white">{product.total}</button>
+                        <button className="border px-2 py-2 w-12" onClick={increase}>+</button>
+                        <button className="border px-12 py-2 ms-3 bg-red-500 text-white" onClick={buyProduct}>Buy</button>
                     </div>
                 </div>
             </section>
@@ -171,54 +175,18 @@ const ProductPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                            <a href="#">
-                                <img className="rounded-t-lg" src={'https://images.unsplash.com/photo-1722260613137-f8f5ac432d69?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="" />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                                </a>
-                                <div>
-                                    <span>Rp.1200.0000</span>
-                                    <RatingComponent rate={3}/>
-                                </div>
-                            </div>
+
+                    {items.map((item, index) => (
+                        <div key={index}>
+                            <CardProduct 
+                                image={'https://images.unsplash.com/photo-1722260613137-f8f5ac432d69?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} 
+                                title={'Noteworthy technology acquisitions 2021'}
+                                price={'Rp.1200.0000'}
+                                rating={randomIntFromInterval(1,5)}
+                            />
                         </div>
-                    </div> 
-                    <div>   
-                        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                            <a href="#">
-                                <img className="rounded-t-lg" src={'https://images.unsplash.com/photo-1722260613137-f8f5ac432d69?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="" />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                                </a>
-                                <div>
-                                    <span>Rp.1200.0000</span>
-                                    <RatingComponent rate={3}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                            <a href="#">
-                                <img className="rounded-t-lg" src={'https://images.unsplash.com/photo-1722260613137-f8f5ac432d69?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} alt="" />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                                </a>
-                                <div>
-                                    <span>Rp.1200.0000</span>
-                                    <RatingComponent rate={3}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
+                  
                 </div>
             </section>
            
